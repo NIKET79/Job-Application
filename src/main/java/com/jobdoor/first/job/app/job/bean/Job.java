@@ -1,10 +1,20 @@
 package com.jobdoor.first.job.app.job.bean;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "job_table")
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
         private long id;
         private String title;
         private String  descritption;
-        private String minSalary;
+
+    public Job() {
+    }
+
+    private String minSalary;
         private String maxSalary;
         private String location;
 

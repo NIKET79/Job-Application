@@ -49,7 +49,7 @@ public class JobContoller {
         public  ResponseEntity<String> updateJob(@PathVariable Long id,@RequestBody  Job  job){
                 String result= jobService.updateJob(id,job);
                 if (result == "SUCCESS") {
-                        return  new ResponseEntity<>("Updated successfully"+job.getId(),HttpStatus.OK);
+                        return  new ResponseEntity<>("Updated successfully",HttpStatus.OK);
                 }
                 else{
                         return  new ResponseEntity<>("Job not found",HttpStatus.NOT_FOUND);
