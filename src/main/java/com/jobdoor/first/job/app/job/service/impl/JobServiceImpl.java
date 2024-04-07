@@ -35,7 +35,7 @@ public class JobServiceImpl implements JobService {
     public String deleteById(Long id) {
         for(Job job:jobs){
             if(job.getId()==id){
-                jobs.remove(id);
+                jobs.remove(job);
                 return "SUCCESS" ;
             }
         }
@@ -43,17 +43,20 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public String updateJob(Job job) {
-       for(Job avialableJob:jobs){
-           if(avialableJob.getId()==job.getId()){
-                jobs.remove(avialableJob);
-                jobs.add(job);
+    public String updateJob(Long id, Job job) {
+        for(Job avialableJob:jobs){
+            if(avialableJob.getId()==id){
+                avialableJob.setTitle(job.getTitle());
+                avialableJob.setDescritption(job.getDescritption());
+                avialableJob.setMinSalary(job.getMinSalary());
+                avialableJob.setMaxSalary(job.getMaxSalary());
+                avialableJob.setLocation(job.getLocation());
                 return "SUCCESS";
-           }
+            }
 
-       }
+        }
         return "NOT FOUND";
+    }
     }
 
 
-}

@@ -13,5 +13,5 @@ public interface JobService {
 
         public String deleteById(Long id);
 
-        public String updateJob(Job job);
+        public String updateJob(Long id,Job job);
 }

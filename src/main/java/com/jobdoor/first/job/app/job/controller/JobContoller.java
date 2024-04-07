@@ -44,9 +44,10 @@ public class JobContoller {
                 }
         }
 
-        @PutMapping("updatejob")
-        public  ResponseEntity<String> updateJob(@RequestBody  Job  job){
-                String result= jobService.updateJob(job);
+//        @PutMapping("updatejob/{id}")
+        @RequestMapping(value = "updatejob/{id}",method = RequestMethod.PUT)
+        public  ResponseEntity<String> updateJob(@PathVariable Long id,@RequestBody  Job  job){
+                String result= jobService.updateJob(id,job);
                 if (result == "SUCCESS") {
                         return  new ResponseEntity<>("Updated successfully"+job.getId(),HttpStatus.OK);
                 }
