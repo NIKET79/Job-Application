@@ -33,4 +33,25 @@ public class JobContoller {
                 return new ResponseEntity<>( "Job added Successfully",HttpStatus.OK);
         }
 
+        @DeleteMapping("deletejob/{id}")
+        public ResponseEntity<String> deleteJobById(@PathVariable Long id){
+                String result=jobService.deleteById(id);;
+                if (result == "SUCCESS") {
+                return  new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
+                }
+                else{
+                        return  new ResponseEntity<>("Job not found",HttpStatus.NOT_FOUND);
+                }
+        }
+
+        @PutMapping("updatejob")
+        public  ResponseEntity<String> updateJob(@RequestBody  Job  job){
+                String result= jobService.updateJob(job);
+                if (result == "SUCCESS") {
+                        return  new ResponseEntity<>("Updated successfully"+job.getId(),HttpStatus.OK);
+                }
+                else{
+                        return  new ResponseEntity<>("Job not found",HttpStatus.NOT_FOUND);
+                }
+        }
 }

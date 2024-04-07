@@ -10,4 +10,8 @@ public interface JobService {
         public void createJob(Job job);
 
         public Job findById(Long id);
+
+        public String deleteById(Long id);
+
+        public String updateJob(Job job);
 }

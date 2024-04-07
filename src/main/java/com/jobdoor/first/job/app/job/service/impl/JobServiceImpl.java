@@ -30,4 +30,30 @@ public class JobServiceImpl implements JobService {
         }
         return null;
     }
+
+    @Override
+    public String deleteById(Long id) {
+        for(Job job:jobs){
+            if(job.getId()==id){
+                jobs.remove(id);
+                return "SUCCESS" ;
+            }
+        }
+        return "NOT FOUND" ;
+    }
+
+    @Override
+    public String updateJob(Job job) {
+       for(Job avialableJob:jobs){
+           if(avialableJob.getId()==job.getId()){
+                jobs.remove(avialableJob);
+                jobs.add(job);
+                return "SUCCESS";
+           }
+
+       }
+        return "NOT FOUND";
+    }
+
+
 }
