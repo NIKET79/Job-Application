@@ -14,6 +14,8 @@ public class Company {
     private String name;
     private List<String> location;
 
+    private String description;
+
     private String type;
     private String employeesRange;
 
@@ -57,6 +59,14 @@ public class Company {
 
     public String getEmployeesRange() {
         return employeesRange;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setEmployeesRange(String employeesRange) {
