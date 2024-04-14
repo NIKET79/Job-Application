@@ -6,13 +6,13 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface ReviewService {
-   public void addReview(Review review);
+   public boolean addReview(Long  companyId,Review review);
 
-    public   List<Review> findAll();
+    public   List<Review> findAll(Long companyId);
 
-   public  Review findById(Long id);
+   public  Review findById(Long reviewId,Long companyId);
 
-  public  boolean deleteById(Long id);
+  public  boolean deleteById(Long reviewId,Long companyId);
 
-    public   boolean updateByid(Long id, Review review);
+    public   boolean updateByid(Long id, Long companyId,Review review);
 }

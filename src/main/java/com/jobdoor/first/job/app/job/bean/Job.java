@@ -1,6 +1,8 @@
 package com.jobdoor.first.job.app.job.bean;
-
+import com.jobdoor.first.job.app.company.bean.Company;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "job_table")
@@ -10,21 +12,22 @@ public class Job {
         private long id;
         private String title;
         private String  descritption;
-
+        private String minSalary;
+        private String maxSalary;
+        private String location;
+        @ManyToOne
+        private Company company;
     public Job() {
     }
 
-    private String minSalary;
-        private String maxSalary;
-        private String location;
-
-    public Job(long id, String title, String descritption, String minSalary, String maxSalary, String location) {
+    public Job(long id, String title, String descritption, String minSalary, String maxSalary, String location, Company company) {
         this.id = id;
         this.title = title;
         this.descritption = descritption;
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
         this.location = location;
+        this.company = company;
     }
 
     public Job(long id) {
@@ -78,4 +81,13 @@ public class Job {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
 }

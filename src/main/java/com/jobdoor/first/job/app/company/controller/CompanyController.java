@@ -22,13 +22,13 @@ public class CompanyController {
     }
 
     @GetMapping
-    public List<Company> findAll(){
-        return companyService.findAll();
+    public ResponseEntity<List<Company> > findAll(){
+      return   new ResponseEntity<>( companyService.findAll(),HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public Company findById(@PathVariable Long id){
-        return companyService.findById(id);
+    public  ResponseEntity<Company> findById(@PathVariable Long id){
+        return  new ResponseEntity<>(companyService.findById(id),HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
